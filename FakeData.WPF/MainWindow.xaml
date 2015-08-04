@@ -1,0 +1,165 @@
+﻿<Window x:Class="FakeData.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FakeData.WPF"
+        mc:Ignorable="d"
+        xmlns:vm="clr-namespace:FakeData.WPF.ViewModels"
+        Title="Fake Data" Height="350" Width="700" >
+    <Window.DataContext>
+        <vm:MainWindowVM/>
+    </Window.DataContext>
+    <Grid >
+        <ScrollViewer>
+            <StackPanel Orientation="Vertical" >
+                <StackPanel Orientation="Horizontal" Height="30">
+                    <Label Width="170">Number of rows to generate:</Label>
+                    <TextBox Name="tbRows" Text="{Binding AmountRows, Mode=TwoWay}" Width="50" Height="25"/>
+                    <Separator Width="10" Background="{x:Null}" />
+                    <Button Content="Add Data" Command="{Binding SaveCommand}" Height="25"/>
+                </StackPanel>
+                <Separator Height="10" Background="{x:Null}"/>
+                <!--Scanner Name-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label Width="100">Scanner Name:</Label>
+                    <TextBox Name="tbScannerName1"
+                             Text="{Binding ProNetScanResult.ScannerName.ScannerName1, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox Name="tbValueScannerName1" TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.ScannerName.Value1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox Name="cbSannerName1" 
+                              SelectedValue="{Binding ProNetScanResult.ScannerName.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox Name="tbScannerName2"
+                             Text="{Binding ProNetScanResult.ScannerName.ScannerName2, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox Name="tbAmountScannerName2" TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.ScannerName.Value2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox Name="cbSannerName2" 
+                              SelectedValue="{Binding ProNetScanResult.ScannerName.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--IP-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label Width="100">IP:</Label>
+                    <TextBox Name="tb2" Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--Scan Time-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label Width="100">Scan Time:</Label>
+                    <DatePicker SelectedDate="{Binding ProNetScanResult.ScanTime.Date1}" Width="100" />
+                    <TextBox TextAlignment="Right"
+                        Text="{Binding ProNetScanResult.ScanTime.Value1, Mode=TwoWay}" Width="50"/>
+                    <ComboBox Name="cbDateScanTime1"
+                              SelectedValue="{Binding ProNetScanResult.ScanTime.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}"
+                              Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <DatePicker SelectedDate="{Binding ProNetScanResult.ScanTime.Date2}" Width="100"/>
+                    <TextBox TextAlignment="Right"
+                        Text="{Binding ProNetScanResult.ScanTime.Value2, Mode=TwoWay}" Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.ScanTime.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}"
+                              Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--Not Enabled Functionality-->
+                <StackPanel IsEnabled="False">
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Data Center:</Label>
+                        <TextBox Name="tb3" Width="100"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Device Type:</Label>
+                        <TextBox Name="tb5" Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">System Type:</Label>
+                        <TextBox Name="tb6" Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Scanner Name:</Label>
+                        <TextBox Name="tb4" Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Primary IP:</Label>
+                        <TextBox Name="tb7" Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Primary IP Address:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">WMI:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">WMI Index:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Listeners:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Localtion:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">DNS Name:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">VM:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Software Source:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Scan Start:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Host Name:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Owner:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Discover Time:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Model Started:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Model Finished:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Integration Status:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="25">
+                        <Label Width="100">Integration Process Date:</Label>
+                        <TextBox Width="100"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
