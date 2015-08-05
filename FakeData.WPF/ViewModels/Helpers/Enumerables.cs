@@ -12,7 +12,7 @@ namespace FakeData.WPF.ViewModels.Helpers
 
     public enum ValueOption
     {
-        Percentaje,
+        Percentage,
         Amount,
         Remain
     }

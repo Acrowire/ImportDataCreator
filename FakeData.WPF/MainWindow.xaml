@@ -69,29 +69,91 @@
                               Width="100"/>
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
+                <!--Data Center-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label Width="100">Data Center:</Label>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.DataCenter.DataCenter1, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.DataCenter.Value1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.DataCenter.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.DataCenter.DataCenter2, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.DataCenter.Value2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.DataCenter.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--Device Type-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label Width="100">Device Type:</Label>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.DeviceType.DeviceType1, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.DeviceType.Value1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.DeviceType.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.DeviceType.DeviceType2, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.DeviceType.Value2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.DeviceType.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--System Type-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label Width="100">System Type:</Label>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.SystemType.SystemType1, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.SystemType.Value1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.SystemType.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.SystemType.SystemType2, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.SystemType.Value2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.SystemType.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--Primary IP-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label Width="100">Primary IP:</Label>
+                    <TextBox Name="tb4" Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--Primary IP Address-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label Width="100">Primary IP Address:</Label>
+                    <TextBox Name="tb7" Width="100"/>
+                </StackPanel>
                 <!--Not Enabled Functionality-->
                 <StackPanel IsEnabled="False">
-                    <StackPanel Orientation="Horizontal" Height="25">
-                        <Label Width="100">Data Center:</Label>
-                        <TextBox Name="tb3" Width="100"/>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" Height="25">
-                        <Label Width="100">Device Type:</Label>
-                        <TextBox Name="tb5" Width="100"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="25">
-                        <Label Width="100">System Type:</Label>
-                        <TextBox Name="tb6" Width="100"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="25">
-                        <Label Width="100">Scanner Name:</Label>
-                        <TextBox Name="tb4" Width="100"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="25">
-                        <Label Width="100">Primary IP:</Label>
-                        <TextBox Name="tb7" Width="100"/>
-                    </StackPanel>
                     <StackPanel Orientation="Horizontal" Height="25">
                         <Label Width="100">Primary IP Address:</Label>
                         <TextBox Width="100"/>

@@ -64,9 +64,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\DataCenter.cs" />
+    <Compile Include="Model\DeviceType.cs" />
     <Compile Include="Model\ProNetScanResult.cs" />
     <Compile Include="Model\ScannerName.cs" />
     <Compile Include="Model\ScanTime.cs" />
+    <Compile Include="Model\SystemType.cs" />
     <Compile Include="ViewModels\Helpers\CustomNotifyPropertyChanged.cs" />
     <Compile Include="ViewModels\Helpers\Enumerables.cs" />
     <Compile Include="ViewModels\Helpers\SaveCommand.cs" />
