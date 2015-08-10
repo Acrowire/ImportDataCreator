@@ -2,6 +2,7 @@
 using FakeData.WPF.ViewModels.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,17 @@ namespace FakeData.WPF.Model
 {
     public class ProNetScanResult : CustomNotifyPropertyChanged
     {
+        #region Constructors
+
+        public ProNetScanResult()
+        {
+            YesNoList.Clear();
+            YesNoList.Add("Yes");
+            YesNoList.Add("No");
+        }
+
+        #endregion
+
         #region Properties
 
         private ScannerName scannerName = new ScannerName();
@@ -100,6 +112,61 @@ namespace FakeData.WPF.Model
             set { hostName = value; }
         }
 
+        private IP ip = new IP();
+
+        public IP IP
+        {
+            get { return ip; }
+            set { ip = value; }
+        }
+
+        private PrimaryIP primaryIP = new PrimaryIP();
+
+        public PrimaryIP PrimaryIP
+        {
+            get { return primaryIP; }
+            set { primaryIP = value; }
+        }
+
+        private PrimaryIPAddress primaryIPAddress = new PrimaryIPAddress();
+
+        public PrimaryIPAddress PrimaryIPAddress
+        {
+            get { return primaryIPAddress; }
+            set { primaryIPAddress = value; }
+        }
+
+        private WMI wmi = new WMI();
+
+        public WMI WMI
+        {
+            get { return wmi; }
+            set { wmi = value; }
+        }
+
+        private WMIIndex wmiIndex = new WMIIndex();
+
+        public WMIIndex WMIIndex
+        {
+            get { return wmiIndex; }
+            set { wmiIndex = value; }
+        }
+
+        private VM vm = new VM();
+
+        public VM VM
+        {
+            get { return vm; }
+            set { vm = value; }
+        }
+        private ObservableCollection<string> yesnolist = new ObservableCollection<string>();
+
+        public ObservableCollection<string> YesNoList
+        {
+            get { return yesnolist; }
+            set { yesnolist = value; NotifyPropertyChanged(); }
+        }   
+
 
         #endregion
 
@@ -144,6 +211,21 @@ namespace FakeData.WPF.Model
             int rowsHNPercentage1 = (hostName.Amount1 * amountRows) / 100;
             int rowsHNPercentage2 = (hostName.Amount2 * amountRows) / 100;
 
+            int rowsIPPercentage1 = (ip.Amount1 * amountRows) / 100;
+            int rowsIPPercentage2 = (ip.Amount2 * amountRows) / 100;
+
+            int rowsPIPPercentage1 = (primaryIP.Amount1 * amountRows) / 100;
+            int rowsPIPPercentage2 = (primaryIP.Amount2 * amountRows) / 100;
+
+            int rowsPIPAddressPerc1 = (primaryIPAddress.Amount1 * amountRows) / 100;
+            int rowsPIPAddressPerc2 = (primaryIPAddress.Amount2 * amountRows) / 100;
+
+            int rowsWMIPercentage1 = (wmi.Amount1 * amountRows) / 100;
+            int rowsWMIPercentage2 = (wmi.Amount2 * amountRows) / 100;
+
+            int rowsWMIIndexPerc1 = (wmiIndex.Amount1 * amountRows) / 100;
+            int rowsWMIIndexPerc2 = (wmiIndex.Amount2 * amountRows) / 100;
+
             #endregion
 
             for (int i = 1; i <= amountRows; i++)
@@ -185,6 +267,43 @@ namespace FakeData.WPF.Model
                     default:
                         break;
                 }
+
+                #endregion
+
+                #region IP
+
+                switch (ip.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsIPPercentage1)
+                            obj.IP = ip.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= ip.Amount1)
+                            obj.IP = ip.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (ip.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsIPPercentage1 && i <= (rowsIPPercentage1 + rowsIPPercentage2))
+                            obj.IP = ip.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > ip.Amount1 && i <= (ip.Amount1 + ip.Amount2))
+                            obj.IP = ip.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
 
                 #endregion
 
@@ -329,6 +448,154 @@ namespace FakeData.WPF.Model
                     default:
                         break;
                 }
+
+                #endregion
+
+                #region Primary IP
+
+                switch (primaryIP.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsPIPPercentage1)
+                            obj.PrimaryIP = primaryIP.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= primaryIP.Amount1)
+                            obj.PrimaryIP = primaryIP.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (primaryIP.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsPIPPercentage1 && i <= (rowsPIPPercentage1 + rowsPIPPercentage2))
+                            obj.PrimaryIP = primaryIP.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > primaryIP.Amount1 && i <= (primaryIP.Amount1 + primaryIP.Amount2))
+                            obj.PrimaryIP = primaryIP.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+
+                #endregion
+
+                #region Primary IP Address
+
+                switch (primaryIPAddress.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsPIPAddressPerc1)
+                            obj.PrimaryIPAddress = primaryIPAddress.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= primaryIPAddress.Amount1)
+                            obj.PrimaryIPAddress = primaryIPAddress.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (primaryIPAddress.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsPIPAddressPerc1 && i <= (rowsPIPAddressPerc1 + rowsPIPAddressPerc2))
+                            obj.PrimaryIPAddress = primaryIPAddress.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > primaryIPAddress.Amount1 && i <= (primaryIPAddress.Amount1 + primaryIPAddress.Amount2))
+                            obj.PrimaryIPAddress = primaryIPAddress.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+
+                #endregion
+
+                #region WMI
+
+                switch (wmi.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsWMIPercentage1)
+                            obj.wmi = wmi.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= wmi.Amount1)
+                            obj.wmi = wmi.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (wmi.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsWMIPercentage1 && i <= (rowsWMIPercentage1 + rowsWMIPercentage2))
+                            obj.wmi = wmi.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > wmi.Amount1 && i <= (wmi.Amount1 + wmi.Amount2))
+                            obj.wmi = wmi.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+
+                #endregion
+
+                #region WMI Index
+
+                switch (wmiIndex.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsWMIIndexPerc1)
+                            obj.wmiIndex = wmiIndex.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= wmiIndex.Amount1)
+                            obj.wmiIndex = wmiIndex.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (wmiIndex.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsWMIIndexPerc1 && i <= (rowsWMIIndexPerc1 + rowsWMIIndexPerc2))
+                            obj.wmiIndex = wmiIndex.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > wmiIndex.Amount1 && i <= (wmiIndex.Amount1 + wmiIndex.Amount2))
+                            obj.wmiIndex = wmiIndex.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
 
                 #endregion
 

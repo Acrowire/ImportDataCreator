@@ -6,10 +6,14 @@
         xmlns:local="clr-namespace:FakeData.WPF"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:FakeData.WPF.ViewModels"
+        xmlns:helpers="clr-namespace:FakeData.WPF.ViewModels.Helpers"
         Title="Fake Data" Height="350" Width="700" >
     <Window.DataContext>
         <vm:MainWindowVM/>
     </Window.DataContext>
+    <Window.Resources>
+        <helpers:BoolToStringConverter x:Key="BooleanToStringConverter" FalseValue="No" TrueValue="Yes"/>
+    </Window.Resources>
     <Grid >
         <ScrollViewer>
             <StackPanel Orientation="Vertical" >
@@ -47,7 +51,21 @@
                 <!--IP-->
                 <StackPanel Orientation="Horizontal" Height="25">
                     <Label Width="100">IP:</Label>
-                    <TextBox Name="tb2" Width="100"/>
+                    <TextBox Text="{Binding ProNetScanResult.IP.Value1, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.IP.Amount1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.IP.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox Text="{Binding ProNetScanResult.IP.Value2, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.IP.Amount2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.IP.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Scan Time-->
@@ -144,24 +162,81 @@
                 <!--Primary IP-->
                 <StackPanel Orientation="Horizontal" Height="25">
                     <Label Width="100">Primary IP:</Label>
-                    <TextBox Name="tb4" Width="100"/>
+                    <TextBox Text="{Binding ProNetScanResult.PrimaryIP.Value1, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.PrimaryIP.Amount1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.PrimaryIP.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox Text="{Binding ProNetScanResult.PrimaryIP.Value2, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.PrimaryIP.Amount2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.PrimaryIP.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Primary IP Address-->
                 <StackPanel Orientation="Horizontal" Height="25">
                     <Label Width="100">Primary IP Address:</Label>
-                    <TextBox Name="tb7" Width="100"/>
+                    <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Value1, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.PrimaryIPAddress.Amount1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.PrimaryIPAddress.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Value2, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.PrimaryIPAddress.Amount2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.PrimaryIPAddress.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
                 </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
                 <!--WMI-->
                 <StackPanel Orientation="Horizontal" Height="25">
                     <Label Width="100">WMI:</Label>
-                    <TextBox Width="100"/>
+                    <TextBox Text="{Binding ProNetScanResult.WMI.Value1, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.WMI.Amount1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.WMI.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox Text="{Binding ProNetScanResult.WMI.Value2, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.WMI.Amount2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.WMI.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--WMI Index-->
                 <StackPanel Orientation="Horizontal" Height="25">
                     <Label Width="100">WMI Index:</Label>
-                    <TextBox Width="100"/>
+                    <TextBox Text="{Binding ProNetScanResult.WMIIndex.Value1, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.WMIIndex.Amount1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.WMIIndex.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox Text="{Binding ProNetScanResult.WMIIndex.Value2, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.WMIIndex.Amount2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.WMIIndex.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Listeners-->
@@ -236,6 +311,28 @@
                               ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
+                <!--VM-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label Width="100">VM:</Label>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.VM.Value1, 
+                        Converter={StaticResource BooleanToStringConverter}, Mode=TwoWay}" Width="100" 
+                              ItemsSource="{Binding YesNoList,  Converter={StaticResource BooleanToStringConverter}}" />
+                    <TextBox TextAlignment="Right"
+                        Text="{Binding ProNetScanResult.VM.Amount1, Mode=TwoWay}" Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.VM.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}"
+                              Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.VM.Value2, 
+                        Converter={StaticResource BooleanToStringConverter}, Mode=TwoWay}" Width="100" 
+                              ItemsSource="{Binding YesNoList, Converter={StaticResource BooleanToStringConverter}}"/>
+                    <TextBox TextAlignment="Right"
+                        Text="{Binding ProNetScanResult.VM.Amount2, Mode=TwoWay}" Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.VM.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}"
+                              Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
                 <!--Software Source-->
                 <StackPanel Orientation="Horizontal" Height="25">
                     <Label Width="100">Software Source:</Label>
@@ -304,11 +401,6 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Not Enabled Functionality-->
                 <StackPanel IsEnabled="False">
-                    <!--VM-->
-                    <StackPanel Orientation="Horizontal" Height="25">
-                        <Label Width="100">VM:</Label>
-                        <TextBox Width="100"/>
-                    </StackPanel>
                     <StackPanel Orientation="Horizontal" Height="25">
                         <Label Width="100">Owner:</Label>
                         <TextBox Width="100"/>
