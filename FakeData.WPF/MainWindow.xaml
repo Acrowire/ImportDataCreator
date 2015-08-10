@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:FakeData.WPF.ViewModels"
         xmlns:helpers="clr-namespace:FakeData.WPF.ViewModels.Helpers"
-        Title="Fake Data" Height="350" Width="700" >
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="Fake Data" Height="550" Width="700" >
     <Window.DataContext>
         <vm:MainWindowVM/>
     </Window.DataContext>
@@ -21,12 +22,12 @@
                     <Label Width="170">Number of rows to generate:</Label>
                     <TextBox Name="tbRows" Text="{Binding AmountRows, Mode=TwoWay}" Width="50" Height="25"/>
                     <Separator Width="10" Background="{x:Null}" />
-                    <Button Content="Add Data" Command="{Binding SaveCommand}" Height="25"/>
+                    <Button Content="Insert Records" Command="{Binding SaveCommand}" Height="25"/>
                 </StackPanel>
                 <Separator Height="10" Background="{x:Null}"/>
                 <!--Scanner Name-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">Scanner Name:</Label>
+                    <Label>Scanner Name:</Label>
                     <TextBox Name="tbScannerName1"
                              Text="{Binding ProNetScanResult.ScannerName.Value1, Mode=TwoWay}" 
                              Width="100"/>
@@ -50,7 +51,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--IP-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">IP:</Label>
+                    <Label>IP:</Label>
                     <TextBox Text="{Binding ProNetScanResult.IP.Value1, Mode=TwoWay}" 
                              Width="100"/>
                     <TextBox TextAlignment="Right"
@@ -70,7 +71,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Scan Time-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">Scan Time:</Label>
+                    <Label>Scan Time:</Label>
                     <DatePicker SelectedDate="{Binding ProNetScanResult.ScanTime.Value1}" Width="100" />
                     <TextBox TextAlignment="Right"
                         Text="{Binding ProNetScanResult.ScanTime.Amount1, Mode=TwoWay}" Width="50"/>
@@ -89,7 +90,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Data Center-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">Data Center:</Label>
+                    <Label>Data Center:</Label>
                     <TextBox 
                              Text="{Binding ProNetScanResult.DataCenter.Value1, Mode=TwoWay}" 
                              Width="100"/>
@@ -113,7 +114,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Device Type-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">Device Type:</Label>
+                    <Label>Device Type:</Label>
                     <TextBox 
                              Text="{Binding ProNetScanResult.DeviceType.Value1, Mode=TwoWay}" 
                              Width="100"/>
@@ -137,7 +138,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--System Type-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">System Type:</Label>
+                    <Label>System Type:</Label>
                     <TextBox 
                              Text="{Binding ProNetScanResult.SystemType.Value1, Mode=TwoWay}" 
                              Width="100"/>
@@ -161,7 +162,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Primary IP-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">Primary IP:</Label>
+                    <Label>Primary IP:</Label>
                     <TextBox Text="{Binding ProNetScanResult.PrimaryIP.Value1, Mode=TwoWay}" 
                              Width="100"/>
                     <TextBox TextAlignment="Right"
@@ -181,7 +182,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Primary IP Address-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">Primary IP Address:</Label>
+                    <Label>Primary IP Address:</Label>
                     <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Value1, Mode=TwoWay}" 
                              Width="100"/>
                     <TextBox TextAlignment="Right"
@@ -201,7 +202,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--WMI-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">WMI:</Label>
+                    <Label>WMI:</Label>
                     <TextBox Text="{Binding ProNetScanResult.WMI.Value1, Mode=TwoWay}" 
                              Width="100"/>
                     <TextBox TextAlignment="Right"
@@ -221,7 +222,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--WMI Index-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">WMI Index:</Label>
+                    <Label>WMI Index:</Label>
                     <TextBox Text="{Binding ProNetScanResult.WMIIndex.Value1, Mode=TwoWay}" 
                              Width="100"/>
                     <TextBox TextAlignment="Right"
@@ -241,7 +242,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Listeners-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">Listeners:</Label>
+                    <Label>Listeners:</Label>
                     <TextBox 
                              Text="{Binding ProNetScanResult.Listeners.Value1, Mode=TwoWay}" 
                              Width="100"/>
@@ -265,7 +266,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Location-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">Localtion:</Label>
+                    <Label>Localtion:</Label>
                     <TextBox 
                              Text="{Binding ProNetScanResult.Location.Value1, Mode=TwoWay}" 
                              Width="100"/>
@@ -289,7 +290,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--DNS Name-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">DNS Name:</Label>
+                    <Label>DNS Name:</Label>
                     <TextBox 
                              Text="{Binding ProNetScanResult.DNSName.Value1, Mode=TwoWay}" 
                              Width="100"/>
@@ -313,19 +314,21 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--VM-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">VM:</Label>
-                    <ComboBox SelectedValue="{Binding ProNetScanResult.VM.Value1, 
-                        Converter={StaticResource BooleanToStringConverter}, Mode=TwoWay}" Width="100" 
-                              ItemsSource="{Binding YesNoList,  Converter={StaticResource BooleanToStringConverter}}" />
+                    <Label>VM:</Label>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.VM.Value1, Mode=TwoWay}" Width="100" >
+                        <sys:String>Yes</sys:String>
+                        <sys:String>No</sys:String>
+                    </ComboBox>
                     <TextBox TextAlignment="Right"
                         Text="{Binding ProNetScanResult.VM.Amount1, Mode=TwoWay}" Width="50"/>
                     <ComboBox SelectedValue="{Binding ProNetScanResult.VM.Option1}" 
                               ItemsSource="{Binding ValuOptionEnum}"
                               Width="100"/>
                     <Separator Width="15" Background="{x:Null}"/>
-                    <ComboBox SelectedValue="{Binding ProNetScanResult.VM.Value2, 
-                        Converter={StaticResource BooleanToStringConverter}, Mode=TwoWay}" Width="100" 
-                              ItemsSource="{Binding YesNoList, Converter={StaticResource BooleanToStringConverter}}"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.VM.Value2, Mode=TwoWay}" Width="100" >
+                        <sys:String>Yes</sys:String>
+                        <sys:String>No</sys:String>
+                    </ComboBox>
                     <TextBox TextAlignment="Right"
                         Text="{Binding ProNetScanResult.VM.Amount2, Mode=TwoWay}" Width="50"/>
                     <ComboBox SelectedValue="{Binding ProNetScanResult.VM.Option2}" 
@@ -335,7 +338,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Software Source-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">Software Source:</Label>
+                    <Label>Software Source:</Label>
                     <TextBox 
                              Text="{Binding ProNetScanResult.SoftwareSource.Value1, Mode=TwoWay}" 
                              Width="100"/>
@@ -359,7 +362,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Scan Start-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">Scan Start:</Label>
+                    <Label>Scan Start:</Label>
                     <DatePicker SelectedDate="{Binding ProNetScanResult.ScanStart.Value1}" Width="100" />
                     <TextBox TextAlignment="Right"
                         Text="{Binding ProNetScanResult.ScanStart.Amount1, Mode=TwoWay}" Width="50"/>
@@ -377,7 +380,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Host Name-->
                 <StackPanel Orientation="Horizontal" Height="25">
-                    <Label Width="100">Host Name:</Label>
+                    <Label>Host Name:</Label>
                     <TextBox 
                              Text="{Binding ProNetScanResult.HostName.Value1, Mode=TwoWay}" 
                              Width="100"/>
@@ -399,32 +402,180 @@
                               ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
+                <!--OS Support-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label>OSSupportsSts:</Label>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.OSSupportSts.Value1, Mode=TwoWay,
+                                NotifyOnValidationError=True, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.OSSupportSts.Amount1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.OSSupportSts.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.OSSupportSts.Value2, Mode=TwoWay,
+                                NotifyOnValidationError=True, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.OSSupportSts.Amount2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.OSSupportSts.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--Owner-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label>Owner:</Label>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.Owner.Value1, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.Owner.Amount1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.Owner.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.Owner.Value2, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.Owner.Amount2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.Owner.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--Discover Time-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label>Discover Time:</Label>
+                    <DatePicker SelectedDate="{Binding ProNetScanResult.DiscoverTime.Value1}" Width="100" />
+                    <TextBox TextAlignment="Right"
+                        Text="{Binding ProNetScanResult.DiscoverTime.Amount1, Mode=TwoWay}" Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.DiscoverTime.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}"
+                              Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <DatePicker SelectedDate="{Binding ProNetScanResult.DiscoverTime.Value2}" Width="100"/>
+                    <TextBox TextAlignment="Right"
+                        Text="{Binding ProNetScanResult.DiscoverTime.Amount2, Mode=TwoWay}" Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.DiscoverTime.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}"
+                              Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--Model Started-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label>Model Started:</Label>
+                    <DatePicker SelectedDate="{Binding ProNetScanResult.ModelStarted.Value1}" Width="100" />
+                    <TextBox TextAlignment="Right"
+                        Text="{Binding ProNetScanResult.ModelStarted.Amount1, Mode=TwoWay}" Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.ModelStarted.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}"
+                              Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <DatePicker SelectedDate="{Binding ProNetScanResult.ModelStarted.Value2}" Width="100"/>
+                    <TextBox TextAlignment="Right"
+                        Text="{Binding ProNetScanResult.ModelStarted.Amount2, Mode=TwoWay}" Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.ModelStarted.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}"
+                              Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--Model Finished-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label>Model Finished:</Label>
+                    <DatePicker SelectedDate="{Binding ProNetScanResult.ModelFinished.Value1}" Width="100" />
+                    <TextBox TextAlignment="Right"
+                        Text="{Binding ProNetScanResult.ModelFinished.Amount1, Mode=TwoWay}" Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.ModelFinished.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}"
+                              Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <DatePicker SelectedDate="{Binding ProNetScanResult.ModelFinished.Value2}" Width="100"/>
+                    <TextBox TextAlignment="Right"
+                        Text="{Binding ProNetScanResult.ModelFinished.Amount2, Mode=TwoWay}" Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.ModelFinished.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}"
+                              Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--HWSupportSts-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label>HWSupportSts:</Label>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.HWSupportSts.Value1, Mode=TwoWay,
+                                NotifyOnValidationError=True, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.HWSupportSts.Amount1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.HWSupportSts.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.HWSupportSts.Value2, Mode=TwoWay,
+                                NotifyOnValidationError=True, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.HWSupportSts.Amount2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.HWSupportSts.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--Integration Status-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label>Integration Status:</Label>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.IntegrationStatus.Value1, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.IntegrationStatus.Amount1, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.IntegrationStatus.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <TextBox 
+                             Text="{Binding ProNetScanResult.IntegrationStatus.Value2, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox TextAlignment="Right"
+                             Text="{Binding ProNetScanResult.IntegrationStatus.Amount2, Mode=TwoWay}"
+                             Width="50"/>
+                    <ComboBox 
+                              SelectedValue="{Binding ProNetScanResult.IntegrationStatus.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                </StackPanel>
+                <Separator Height="5" Background="{x:Null}"/>
+                <!--Integration Process Date-->
+                <StackPanel Orientation="Horizontal" Height="25">
+                    <Label>Integration Process Date:</Label>
+                    <DatePicker SelectedDate="{Binding ProNetScanResult.IntegrationProcessDate.Value1}" Width="100" />
+                    <TextBox TextAlignment="Right"
+                        Text="{Binding ProNetScanResult.IntegrationProcessDate.Amount1, Mode=TwoWay}" Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.IntegrationProcessDate.Option1}" 
+                              ItemsSource="{Binding ValuOptionEnum}"
+                              Width="100"/>
+                    <Separator Width="15" Background="{x:Null}"/>
+                    <DatePicker SelectedDate="{Binding ProNetScanResult.IntegrationProcessDate.Value2}" Width="100"/>
+                    <TextBox TextAlignment="Right"
+                        Text="{Binding ProNetScanResult.IntegrationProcessDate.Amount2, Mode=TwoWay}" Width="50"/>
+                    <ComboBox SelectedValue="{Binding ProNetScanResult.IntegrationProcessDate.Option2}" 
+                              ItemsSource="{Binding ValuOptionEnum}"
+                              Width="100"/>
+                </StackPanel>
                 <!--Not Enabled Functionality-->
                 <StackPanel IsEnabled="False">
-                    <StackPanel Orientation="Horizontal" Height="25">
-                        <Label Width="100">Owner:</Label>
-                        <TextBox Width="100"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="25">
-                        <Label Width="100">Discover Time:</Label>
-                        <TextBox Width="100"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="25">
-                        <Label Width="100">Model Started:</Label>
-                        <TextBox Width="100"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="25">
-                        <Label Width="100">Model Finished:</Label>
-                        <TextBox Width="100"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="25">
-                        <Label Width="100">Integration Status:</Label>
-                        <TextBox Width="100"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="25">
-                        <Label Width="100">Integration Process Date:</Label>
-                        <TextBox Width="100"/>
-                    </StackPanel>
+
                 </StackPanel>
 
             </StackPanel>

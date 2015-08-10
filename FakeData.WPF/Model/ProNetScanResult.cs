@@ -11,17 +11,6 @@ namespace FakeData.WPF.Model
 {
     public class ProNetScanResult : CustomNotifyPropertyChanged
     {
-        #region Constructors
-
-        public ProNetScanResult()
-        {
-            YesNoList.Clear();
-            YesNoList.Add("Yes");
-            YesNoList.Add("No");
-        }
-
-        #endregion
-
         #region Properties
 
         private ScannerName scannerName = new ScannerName();
@@ -159,13 +148,70 @@ namespace FakeData.WPF.Model
             get { return vm; }
             set { vm = value; }
         }
-        private ObservableCollection<string> yesnolist = new ObservableCollection<string>();
 
-        public ObservableCollection<string> YesNoList
+        private OSSupportSts osSupportSts = new OSSupportSts();
+
+        public OSSupportSts OSSupportSts
         {
-            get { return yesnolist; }
-            set { yesnolist = value; NotifyPropertyChanged(); }
-        }   
+            get { return osSupportSts; }
+            set { osSupportSts = value; }
+        }
+
+        private Owner owner = new Owner();
+
+        public Owner Owner
+        {
+            get { return owner; }
+            set { owner = value; }
+        }
+
+        private DiscoverTime discoverTime = new DiscoverTime();
+
+        public DiscoverTime DiscoverTime
+        {
+            get { return discoverTime; }
+            set { discoverTime = value; }
+        }
+
+        private ModelStarted modelStarted = new ModelStarted();
+
+        public ModelStarted ModelStarted
+        {
+            get { return modelStarted; }
+            set { modelStarted = value; }
+        }
+
+        private ModelFinished modelFinished = new ModelFinished();
+
+        public ModelFinished ModelFinished
+        {
+            get { return modelFinished; }
+            set { modelFinished = value; }
+        }
+
+        private HWSupportSts hwSupportSts = new HWSupportSts();
+
+        public HWSupportSts HWSupportSts
+        {
+            get { return hwSupportSts; }
+            set { hwSupportSts = value; }
+        }
+
+        private IntegrationStatus integrationStatus = new IntegrationStatus();
+
+        public IntegrationStatus IntegrationStatus
+        {
+            get { return integrationStatus; }
+            set { integrationStatus = value; }
+        }
+
+        private IntegrationProcessDate integrationProcessDate =  new IntegrationProcessDate();
+
+        public IntegrationProcessDate IntegrationProcessDate
+        {
+            get { return integrationProcessDate; }
+            set { integrationProcessDate = value; }
+        }
 
 
         #endregion
@@ -225,6 +271,33 @@ namespace FakeData.WPF.Model
 
             int rowsWMIIndexPerc1 = (wmiIndex.Amount1 * amountRows) / 100;
             int rowsWMIIndexPerc2 = (wmiIndex.Amount2 * amountRows) / 100;
+
+            int rowsVMPercentage1 = (vm.Amount1 * amountRows) / 100;
+            int rowsVMPercentage2 = (vm.Amount2 * amountRows) / 100;
+
+            int rowsOSPercentage1 = (osSupportSts.Amount1 * amountRows) / 100;
+            int rowsOSPercentage2 = (osSupportSts.Amount2 * amountRows) / 100;
+
+            int rowsOPercentage1 = (owner.Amount1 * amountRows) / 100;
+            int rowsOPercentage2 = (owner.Amount2 * amountRows) / 100;
+
+            int rowsDTimePercentage1 = (discoverTime.Amount1 * amountRows) / 100;
+            int rowsDTimePercentage2 = (discoverTime.Amount2 * amountRows) / 100;
+
+            int rowsMSPercentage1 = (modelStarted.Amount1 * amountRows) / 100;
+            int rowsMSPercentage2 = (modelStarted.Amount2 * amountRows) / 100;
+
+            int rowsMFPercentage1 = (modelFinished.Amount1 * amountRows) / 100;
+            int rowsMFPercentage2 = (modelFinished.Amount2 * amountRows) / 100;
+
+            int rowsHWPercentage1 = (hwSupportSts.Amount1 * amountRows) / 100;
+            int rowsHWPercentage2 = (hwSupportSts.Amount2 * amountRows) / 100;
+
+            int rowsISPercentage1 = (integrationStatus.Amount1 * amountRows) / 100;
+            int rowsISPercentage2 = (integrationStatus.Amount2 * amountRows) / 100;
+
+            int rowsIntPPercentage1 = (integrationProcessDate.Amount1 * amountRows) / 100;
+            int rowsIntPPercentage2 = (integrationProcessDate.Amount2 * amountRows) / 100;
 
             #endregion
 
@@ -707,6 +780,42 @@ namespace FakeData.WPF.Model
 
                 #endregion
 
+                #region VM
+
+                switch (vm.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsVMPercentage1)
+                            obj.VM = vm.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= vm.Amount1)
+                            obj.VM = vm.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (vm.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsVMPercentage1 && i <= (rowsVMPercentage1 + rowsVMPercentage2))
+                            obj.VM = vm.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > vm.Amount1 && i <= (vm.Amount1 + vm.Amount2))
+                            obj.VM = vm.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                #endregion
+
                 #region Software Source
 
                 switch (softwareSource.Option1)
@@ -816,6 +925,298 @@ namespace FakeData.WPF.Model
                         break;
                 }
 
+
+                #endregion
+
+                #region OSSupportSts
+
+                switch (osSupportSts.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsOSPercentage1)
+                            obj.OSSupportSts = osSupportSts.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= osSupportSts.Amount1)
+                            obj.OSSupportSts = osSupportSts.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (osSupportSts.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsOSPercentage1 && i <= (rowsOSPercentage1 + rowsOSPercentage2))
+                            obj.OSSupportSts = osSupportSts.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > osSupportSts.Amount1 && i <= (osSupportSts.Amount1 + osSupportSts.Amount2))
+                            obj.OSSupportSts = osSupportSts.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+
+                #endregion
+
+                #region Owner
+
+                switch (owner.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsOPercentage1)
+                            obj.Owner = owner.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= owner.Amount1)
+                            obj.Owner = owner.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (owner.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsOPercentage1 && i <= (rowsOPercentage1 + rowsOPercentage2))
+                            obj.Owner = owner.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > owner.Amount1 && i <= (owner.Amount1 + owner.Amount2))
+                            obj.Owner = owner.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+
+                #endregion
+
+                #region Discover Time
+
+                switch (discoverTime.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsDTimePercentage1)
+                            obj.DiscoverTime = discoverTime.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= discoverTime.Amount1)
+                            obj.DiscoverTime = discoverTime.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (discoverTime.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsDTimePercentage1 && i <= (rowsDTimePercentage1 + rowsDTimePercentage2))
+                            obj.DiscoverTime = discoverTime.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > discoverTime.Amount1 && i <= (discoverTime.Amount1 + discoverTime.Amount2))
+                            obj.DiscoverTime = discoverTime.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                #endregion
+
+                #region Model Started
+
+                switch (modelStarted.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsMSPercentage1)
+                            obj.ModelStarted = modelStarted.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= discoverTime.Amount1)
+                            obj.ModelStarted = modelStarted.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (modelStarted.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsMSPercentage1 && i <= (rowsMSPercentage1 + rowsMSPercentage2))
+                            obj.ModelStarted = modelStarted.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > modelStarted.Amount1 && i <= (modelStarted.Amount1 + modelStarted.Amount2))
+                            obj.ModelStarted = modelStarted.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                #endregion
+
+                #region Model Finished
+
+                switch (modelFinished.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsMFPercentage1)
+                            obj.ModelFinished = modelFinished.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= modelFinished.Amount1)
+                            obj.ModelFinished = modelFinished.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (modelFinished.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsMFPercentage1 && i <= (rowsMFPercentage1 + rowsMFPercentage2))
+                            obj.ModelFinished = modelFinished.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > modelFinished.Amount1 && i <= (modelFinished.Amount1 + modelFinished.Amount2))
+                            obj.ModelFinished = modelFinished.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                #endregion
+
+                #region HWSupportSts
+
+                switch (hwSupportSts.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsHWPercentage1)
+                            obj.HWSupportSts = hwSupportSts.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= hwSupportSts.Amount1)
+                            obj.HWSupportSts = hwSupportSts.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (hwSupportSts.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsHWPercentage1 && i <= (rowsHWPercentage1 + rowsHWPercentage2))
+                            obj.HWSupportSts = hwSupportSts.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > hwSupportSts.Amount1 && i <= (hwSupportSts.Amount1 + hwSupportSts.Amount2))
+                            obj.HWSupportSts = hwSupportSts.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+
+                #endregion
+
+                #region Integration Status
+
+                switch (integrationStatus.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsISPercentage1)
+                            obj.IntegrationStatus = integrationStatus.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= integrationStatus.Amount1)
+                            obj.IntegrationStatus = integrationStatus.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (integrationStatus.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsISPercentage1 && i <= (rowsISPercentage1 + rowsISPercentage2))
+                            obj.IntegrationStatus = integrationStatus.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > integrationStatus.Amount1 && i <= (integrationStatus.Amount1 + integrationStatus.Amount2))
+                            obj.IntegrationStatus = integrationStatus.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+
+                #endregion
+
+                #region Integration Process Date
+
+                switch (integrationProcessDate.Option1)
+                {
+                    case ValueOption.Percentage:
+                        if (i <= rowsIntPPercentage1)
+                            obj.IntegrationProcessDate = integrationProcessDate.Value1;
+                        break;
+                    case ValueOption.Amount:
+                        if (i <= integrationProcessDate.Amount1)
+                            obj.IntegrationProcessDate = integrationProcessDate.Value1;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (integrationProcessDate.Option2)
+                {
+                    case ValueOption.Percentage:
+                        if (i > rowsIntPPercentage1 && i <= (rowsIntPPercentage1 + rowsIntPPercentage2))
+                            obj.IntegrationProcessDate = integrationProcessDate.Value2;
+                        break;
+                    case ValueOption.Amount:
+                        if (i > integrationProcessDate.Amount1 && i <= (integrationProcessDate.Amount1 + integrationProcessDate.Amount2))
+                            obj.IntegrationProcessDate = integrationProcessDate.Value2;
+                        break;
+                    case ValueOption.Remain:
+                        break;
+                    default:
+                        break;
+                }
 
                 #endregion
 

@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace FakeData.WPF.Model
 {
-    public class VM : GenericModelBase<string>
+    public class DiscoverTime : GenericModelBase<DateTime>
     {
-
-        public VM()
+        public DiscoverTime()
         {
-            value1 = "Yes";
-            value2 = "No";
+            value1 = DateTime.Now;
+            value2 = DateTime.Now;
         }
     }
 }
