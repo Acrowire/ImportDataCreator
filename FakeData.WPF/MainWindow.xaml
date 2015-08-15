@@ -50,24 +50,62 @@
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--IP-->
-                <StackPanel Orientation="Horizontal" Height="25">
-                    <Label>IP:</Label>
-                    <TextBox Text="{Binding ProNetScanResult.IP.Value1, Mode=TwoWay}" 
-                             Width="100"/>
-                    <TextBox TextAlignment="Right"
+                <StackPanel Orientation="Horizontal" Height="60">
+                    <Label Width="75">IP:</Label>
+                    <StackPanel Width="75">
+                        <Label Content="Base Ip:" Height="25" Foreground="DimGray"/>
+                        <Separator Background="{x:Null}" Height="5" />
+                        <Label Content="Max Values:" Foreground="DimGray"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="25">                            
+                            <TextBox Text="{Binding ProNetScanResult.IP.Octet1, Mode=TwoWay,
+                                NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                            <TextBox Text="{Binding ProNetScanResult.IP.Octet2, Mode=TwoWay}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                            <TextBox Text="{Binding ProNetScanResult.IP.Octet3, Mode=TwoWay}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                            <TextBox Text="{Binding ProNetScanResult.IP.Octet4, Mode=TwoWay}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                        </StackPanel>
+                        <Separator Height="5" Background="{x:Null}"/>
+                        <StackPanel Orientation="Horizontal" Height="25">
+                            <TextBox Text="{Binding ProNetScanResult.IP.MaxOctet1, Mode=TwoWay, 
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                            <TextBox Text="{Binding ProNetScanResult.IP.MaxOctet2, Mode=TwoWay}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                            <TextBox Text="{Binding ProNetScanResult.IP.MaxOctet3, Mode=TwoWay}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                            <TextBox Text="{Binding ProNetScanResult.IP.MaxOctet4, Mode=TwoWay}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--<TextBox TextAlignment="Right"
                              Text="{Binding ProNetScanResult.IP.Amount1, Mode=TwoWay}"
                              Width="50"/>
                     <ComboBox SelectedValue="{Binding ProNetScanResult.IP.Option1}" 
                               ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
                     <Separator Width="15" Background="{x:Null}"/>
-                    <TextBox Text="{Binding ProNetScanResult.IP.Value2, Mode=TwoWay}" 
-                             Width="100"/>
+                    <TextBox Text="{Binding ProNetScanResult.IP.MinValue2, Mode=TwoWay}" 
+                             Width="50"/>
+                    <TextBox Text="{Binding ProNetScanResult.IP.MaxValue2, Mode=TwoWay}" 
+                             Width="50"/>
                     <TextBox TextAlignment="Right"
                              Text="{Binding ProNetScanResult.IP.Amount2, Mode=TwoWay}"
                              Width="50"/>
                     <ComboBox SelectedValue="{Binding ProNetScanResult.IP.Option2}" 
-                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>-->
                 </StackPanel>
+                <!--<Separator Height="5" Background="{x:Null}"/>-->
+                <!--<StackPanel Orientation="Horizontal" Height="25">
+                    <TextBox Text="{Binding ProNetScanResult.IP.Value1, Mode=TwoWay}" 
+                             Width="100"/>
+                    <TextBox Text="{Binding ProNetScanResult.IP.Value1, Mode=TwoWay}" 
+                             Width="100"/>
+                </StackPanel>-->
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Scan Time-->
                 <StackPanel Orientation="Horizontal" Height="25">

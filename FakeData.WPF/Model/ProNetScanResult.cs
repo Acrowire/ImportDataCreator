@@ -345,38 +345,30 @@ namespace FakeData.WPF.Model
 
                 #region IP
 
-                switch (ip.Option1)
-                {
-                    case ValueOption.Percentage:
-                        if (i <= rowsIPPercentage1)
-                            obj.IP = ip.Value1;
-                        break;
-                    case ValueOption.Amount:
-                        if (i <= ip.Amount1)
-                            obj.IP = ip.Value1;
-                        break;
-                    case ValueOption.Remain:
-                        break;
-                    default:
-                        break;
-                }
+                obj.IP = ip.Value;
 
-                switch (ip.Option2)
-                {
-                    case ValueOption.Percentage:
-                        if (i > rowsIPPercentage1 && i <= (rowsIPPercentage1 + rowsIPPercentage2))
-                            obj.IP = ip.Value2;
-                        break;
-                    case ValueOption.Amount:
-                        if (i > ip.Amount1 && i <= (ip.Amount1 + ip.Amount2))
-                            obj.IP = ip.Value2;
-                        break;
-                    case ValueOption.Remain:
-                        break;
-                    default:
-                        break;
-                }
+                if (i == 1)
+                    ip.SaveOriginalValues();
 
+                if (ip.Octet4 < ip.MaxOctet4)
+                    ip.Octet4++;
+                else if (ip.Octet3 < ip.MaxOctet3)
+                {
+                    ip.Octet4 = ip.OriginalValue4;
+                    ip.Octet3++;
+                }
+                else if (ip.Octet2 < ip.MaxOctet2)
+                {
+                    ip.Octet3 = ip.OriginalValue3;
+                    ip.Octet2++;
+                }
+                else if (ip.Octet1 < ip.MaxOctet1)
+                {
+                    ip.Octet2 = ip.OriginalValue4;
+                    ip.Octet1++;
+                }
+                else
+                    ip.ResetValues();
 
                 #endregion
 
