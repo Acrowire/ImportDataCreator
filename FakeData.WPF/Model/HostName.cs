@@ -8,5 +8,9 @@ namespace FakeData.WPF.Model
 {
     public class HostName : GenericModelBase<string>
     {
+        public HostName()
+        {
+            Value1 = "host-";
+        }
     }
 }

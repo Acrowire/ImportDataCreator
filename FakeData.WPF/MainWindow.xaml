@@ -329,25 +329,28 @@
                 <!--DNS Name-->
                 <StackPanel Orientation="Horizontal" Height="25">
                     <Label>DNS Name:</Label>
-                    <TextBox 
+                    <StackPanel Orientation="Horizontal" IsEnabled="False">
+                        <TextBox 
                              Text="{Binding ProNetScanResult.DNSName.Value1, Mode=TwoWay}" 
                              Width="100"/>
-                    <TextBox TextAlignment="Right"
+                        <TextBox TextAlignment="Right"
                              Text="{Binding ProNetScanResult.DNSName.Amount1, Mode=TwoWay}"
                              Width="50"/>
-                    <ComboBox 
+                        <ComboBox 
                               SelectedValue="{Binding ProNetScanResult.DNSName.Option1}" 
                               ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
-                    <Separator Width="15" Background="{x:Null}"/>
-                    <TextBox 
+                        <Separator Width="15" Background="{x:Null}"/>
+                        <!--<TextBox 
                              Text="{Binding ProNetScanResult.DNSName.Value2, Mode=TwoWay}" 
                              Width="100"/>
-                    <TextBox TextAlignment="Right"
+                        <TextBox TextAlignment="Right"
                              Text="{Binding ProNetScanResult.DNSName.Amount2, Mode=TwoWay}"
                              Width="50"/>
-                    <ComboBox 
+                        <ComboBox 
                               SelectedValue="{Binding ProNetScanResult.DNSName.Option2}" 
-                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>-->
+                        <Label Content="Format: host-(last octet generated)" Width="200"/>
+                    </StackPanel>
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--VM-->
@@ -419,25 +422,28 @@
                 <!--Host Name-->
                 <StackPanel Orientation="Horizontal" Height="25">
                     <Label>Host Name:</Label>
-                    <TextBox 
+                    <StackPanel IsEnabled="False" Orientation="Horizontal">
+                        <TextBox 
                              Text="{Binding ProNetScanResult.HostName.Value1, Mode=TwoWay}" 
                              Width="100"/>
-                    <TextBox TextAlignment="Right"
+                        <TextBox TextAlignment="Right"
                              Text="{Binding ProNetScanResult.HostName.Amount1, Mode=TwoWay}"
                              Width="50"/>
-                    <ComboBox 
+                        <ComboBox 
                               SelectedValue="{Binding ProNetScanResult.HostName.Option1}" 
                               ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
-                    <Separator Width="15" Background="{x:Null}"/>
-                    <TextBox 
+                        <Separator Width="15" Background="{x:Null}"/>
+                        <Label Content="Format: host-(last octet generated)" Width="200"/>
+                        <!--<TextBox 
                              Text="{Binding ProNetScanResult.HostName.Value2, Mode=TwoWay}" 
                              Width="100"/>
-                    <TextBox TextAlignment="Right"
+                        <TextBox TextAlignment="Right"
                              Text="{Binding ProNetScanResult.HostName.Amount2, Mode=TwoWay}"
                              Width="50"/>
-                    <ComboBox 
+                        <ComboBox 
                               SelectedValue="{Binding ProNetScanResult.HostName.Option2}" 
-                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>-->
+                    </StackPanel>
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--OS Support-->

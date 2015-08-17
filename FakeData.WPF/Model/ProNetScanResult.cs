@@ -347,6 +347,18 @@ namespace FakeData.WPF.Model
 
                 obj.IP = ip.Value;
 
+                #region Host Name
+
+                obj.Hostname = hostName.value1 + ip.Value.Split('.').Last();
+
+                #endregion
+
+                #region DNA Name
+
+                obj.DNSName = dnsName.value1 + ip.Octet4.ToString();
+
+                #endregion  
+
                 if (i == 1)
                     ip.SaveOriginalValues();
 
@@ -736,41 +748,41 @@ namespace FakeData.WPF.Model
 
                 #endregion
 
-                #region DNS Name
+                //#region DNS Name
 
-                switch (dnsName.Option1)
-                {
-                    case ValueOption.Percentage:
-                        if (i <= rowsDNSPercentage1)
-                            obj.DNSName = dnsName.Value1;
-                        break;
-                    case ValueOption.Amount:
-                        if (i <= dnsName.Amount1)
-                            obj.DNSName = dnsName.Value1;
-                        break;
-                    case ValueOption.Remain:
-                        break;
-                    default:
-                        break;
-                }
+                //switch (dnsName.Option1)
+                //{
+                //    case ValueOption.Percentage:
+                //        if (i <= rowsDNSPercentage1)
+                //            obj.DNSName = dnsName.Value1;
+                //        break;
+                //    case ValueOption.Amount:
+                //        if (i <= dnsName.Amount1)
+                //            obj.DNSName = dnsName.Value1;
+                //        break;
+                //    case ValueOption.Remain:
+                //        break;
+                //    default:
+                //        break;
+                //}
 
-                switch (dnsName.Option2)
-                {
-                    case ValueOption.Percentage:
-                        if (i > rowsDNSPercentage1 && i <= (rowsDNSPercentage1 + rowsDNSPercentage2))
-                            obj.DNSName = dnsName.Value2;
-                        break;
-                    case ValueOption.Amount:
-                        if (i > dnsName.Amount1 && i <= (dnsName.Amount1 + dnsName.Amount2))
-                            obj.DNSName = dnsName.Value2;
-                        break;
-                    case ValueOption.Remain:
-                        break;
-                    default:
-                        break;
-                }
+                //switch (dnsName.Option2)
+                //{
+                //    case ValueOption.Percentage:
+                //        if (i > rowsDNSPercentage1 && i <= (rowsDNSPercentage1 + rowsDNSPercentage2))
+                //            obj.DNSName = dnsName.Value2;
+                //        break;
+                //    case ValueOption.Amount:
+                //        if (i > dnsName.Amount1 && i <= (dnsName.Amount1 + dnsName.Amount2))
+                //            obj.DNSName = dnsName.Value2;
+                //        break;
+                //    case ValueOption.Remain:
+                //        break;
+                //    default:
+                //        break;
+                //}
 
-                #endregion
+                //#endregion
 
                 #region VM
 
@@ -883,42 +895,44 @@ namespace FakeData.WPF.Model
 
                 #endregion
 
-                #region Host Name
+                //#region Host Name
 
-                switch (hostName.Option1)
-                {
-                    case ValueOption.Percentage:
-                        if (i <= rowsHNPercentage1)
-                            obj.Hostname = hostName.Value1;
-                        break;
-                    case ValueOption.Amount:
-                        if (i <= hostName.Amount1)
-                            obj.Hostname = hostName.Value1;
-                        break;
-                    case ValueOption.Remain:
-                        break;
-                    default:
-                        break;
-                }
+                //obj.Hostname = hostName.value1 + ip.Value.Split('.').Last();
 
-                switch (hostName.Option2)
-                {
-                    case ValueOption.Percentage:
-                        if (i > rowsHNPercentage1 && i <= (rowsHNPercentage1 + rowsHNPercentage2))
-                            obj.Hostname = hostName.Value2;
-                        break;
-                    case ValueOption.Amount:
-                        if (i > hostName.Amount1 && i <= (hostName.Amount1 + hostName.Amount2))
-                            obj.Hostname = hostName.Value2;
-                        break;
-                    case ValueOption.Remain:
-                        break;
-                    default:
-                        break;
-                }
+                ////switch (hostName.Option1)
+                ////{
+                ////    case ValueOption.Percentage:
+                ////        if (i <= rowsHNPercentage1)
+                ////            obj.Hostname = hostName.Value1;
+                ////        break;
+                ////    case ValueOption.Amount:
+                ////        if (i <= hostName.Amount1)
+                ////            obj.Hostname = hostName.Value1;
+                ////        break;
+                ////    case ValueOption.Remain:
+                ////        break;
+                ////    default:
+                ////        break;
+                ////}
+
+                ////switch (hostName.Option2)
+                ////{
+                ////    case ValueOption.Percentage:
+                ////        if (i > rowsHNPercentage1 && i <= (rowsHNPercentage1 + rowsHNPercentage2))
+                ////            obj.Hostname = hostName.Value2;
+                ////        break;
+                ////    case ValueOption.Amount:
+                ////        if (i > hostName.Amount1 && i <= (hostName.Amount1 + hostName.Amount2))
+                ////            obj.Hostname = hostName.Value2;
+                ////        break;
+                ////    case ValueOption.Remain:
+                ////        break;
+                ////    default:
+                ////        break;
+                ////}
 
 
-                #endregion
+                //#endregion
 
                 #region OSSupportSts
 
