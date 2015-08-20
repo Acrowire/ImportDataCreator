@@ -22,7 +22,7 @@ namespace FakeData.WPF.Model
         public int Octet1
         {
             get { return octet1; }
-            set { octet1 = value; NotifyPropertyChanged(); NotifyPropertyChanged("Ip2Value1"); }
+            set { octet1 = value; NotifyPropertyChanged(); NotifyPropertyChanged("MaxOctet1"); }
         }
 
         protected int octet2;
@@ -30,7 +30,7 @@ namespace FakeData.WPF.Model
         public int Octet2
         {
             get { return octet2; }
-            set { octet2 = value; NotifyPropertyChanged(); }
+            set { octet2 = value; NotifyPropertyChanged(); NotifyPropertyChanged("MaxOctet2"); }
         }
 
         protected int octet3;
@@ -38,7 +38,7 @@ namespace FakeData.WPF.Model
         public int Octet3
         {
             get { return octet3; }
-            set { octet3 = value; NotifyPropertyChanged(); }
+            set { octet3 = value; NotifyPropertyChanged(); NotifyPropertyChanged("MaxOctet3"); }
         }
 
         protected int octet4;
@@ -46,7 +46,7 @@ namespace FakeData.WPF.Model
         public int Octet4
         {
             get { return octet4; }
-            set { octet4 = value; NotifyPropertyChanged(); }
+            set { octet4 = value; NotifyPropertyChanged(); NotifyPropertyChanged("MaxOctet4"); }
         }
 
         #endregion
@@ -70,7 +70,7 @@ namespace FakeData.WPF.Model
         public int MaxOctet1
         {
             get { return maxOctet1; }
-            set { maxOctet1 = value; NotifyPropertyChanged(); NotifyPropertyChanged("Ip1Value1"); }
+            set { maxOctet1 = value; NotifyPropertyChanged(); NotifyPropertyChanged("Octet1"); }
         }
 
         protected int maxOctet2;
@@ -78,7 +78,7 @@ namespace FakeData.WPF.Model
         public int MaxOctet2
         {
             get { return maxOctet2; }
-            set { maxOctet2 = value; NotifyPropertyChanged(); }
+            set { maxOctet2 = value; NotifyPropertyChanged(); NotifyPropertyChanged("Octet2"); }
         }
 
         protected int maxOctet3;
@@ -86,7 +86,7 @@ namespace FakeData.WPF.Model
         public int MaxOctet3
         {
             get { return maxOctet3; }
-            set { maxOctet3 = value; NotifyPropertyChanged(); }
+            set { maxOctet3 = value; NotifyPropertyChanged(); NotifyPropertyChanged("Octet3"); }
         }
 
         protected int maxOctet4;
@@ -94,7 +94,7 @@ namespace FakeData.WPF.Model
         public int MaxOctet4
         {
             get { return maxOctet4; }
-            set { maxOctet4 = value; NotifyPropertyChanged(); }
+            set { maxOctet4 = value; NotifyPropertyChanged(); NotifyPropertyChanged("Octet4"); }
         }
 
         #endregion
@@ -195,11 +195,33 @@ namespace FakeData.WPF.Model
         public IPValidator()
         {
             //TODO: Approach not finished.
+            //Octet 1
             RuleFor(ip => ip.Octet1)
-                .Must((ip, Ip1Value1) => Ip1Value1 <= ip.MaxOctet1).WithMessage("Value should be lower.");
+                .Must((ip, Value) => Value <= ip.MaxOctet1).WithMessage("Value should be lower than Max Value.");
 
             RuleFor(ip => ip.MaxOctet1)
-                .Must((ip, Ip2Value1) => Ip2Value1 >= ip.Octet1).WithMessage("Value should be greater.");
+                .Must((ip, Value) => Value >= ip.Octet1).WithMessage("Value should be greater than Base Value.");
+
+            //Octet 2
+            RuleFor(ip => ip.Octet2)
+                .Must((ip, Value) => Value <= ip.MaxOctet2).WithMessage("Value should be lower than Max Value.");
+
+            RuleFor(ip => ip.MaxOctet2)
+                .Must((ip, Value) => Value >= ip.Octet2).WithMessage("Value should be greater than Base Value.");
+
+            //Octet 3
+            RuleFor(ip => ip.Octet3)
+                .Must((ip, Value) => Value <= ip.MaxOctet3).WithMessage("Value should be lower than Max Value.");
+
+            RuleFor(ip => ip.MaxOctet3)
+                .Must((ip, Value) => Value >= ip.Octet3).WithMessage("Value should be greater than Base Value.");
+
+            //Octet 4
+            RuleFor(ip => ip.Octet4)
+                .Must((ip, Value) => Value <= ip.MaxOctet4).WithMessage("Value should be lower than Max Value.");
+
+            RuleFor(ip => ip.MaxOctet4)
+                .Must((ip, Value) => Value >= ip.Octet4).WithMessage("Value should be greater than Base Value.");
 
             //RuleFor(ip => ip.Ip2Value1).Must(BeGreaterThan).WithMessage("Error!");
         }

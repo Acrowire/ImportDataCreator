@@ -62,11 +62,14 @@
                             <TextBox Text="{Binding ProNetScanResult.IP.Octet1, Mode=TwoWay,
                                 NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
                              Width="50" HorizontalContentAlignment="Right"/>
-                            <TextBox Text="{Binding ProNetScanResult.IP.Octet2, Mode=TwoWay}" 
+                            <TextBox Text="{Binding ProNetScanResult.IP.Octet2, Mode=TwoWay,
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
-                            <TextBox Text="{Binding ProNetScanResult.IP.Octet3, Mode=TwoWay}" 
+                            <TextBox Text="{Binding ProNetScanResult.IP.Octet3, Mode=TwoWay,
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
-                            <TextBox Text="{Binding ProNetScanResult.IP.Octet4, Mode=TwoWay}" 
+                            <TextBox Text="{Binding ProNetScanResult.IP.Octet4, Mode=TwoWay,
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
                         </StackPanel>
                         <Separator Height="5" Background="{x:Null}"/>
@@ -74,11 +77,14 @@
                             <TextBox Text="{Binding ProNetScanResult.IP.MaxOctet1, Mode=TwoWay, 
                                 ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
-                            <TextBox Text="{Binding ProNetScanResult.IP.MaxOctet2, Mode=TwoWay}" 
+                            <TextBox Text="{Binding ProNetScanResult.IP.MaxOctet2, Mode=TwoWay,
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
-                            <TextBox Text="{Binding ProNetScanResult.IP.MaxOctet3, Mode=TwoWay}" 
+                            <TextBox Text="{Binding ProNetScanResult.IP.MaxOctet3, Mode=TwoWay,
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
-                            <TextBox Text="{Binding ProNetScanResult.IP.MaxOctet4, Mode=TwoWay}" 
+                            <TextBox Text="{Binding ProNetScanResult.IP.MaxOctet4, Mode=TwoWay,
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
                         </StackPanel>
                     </StackPanel>
@@ -231,11 +237,14 @@
                             <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Octet1, Mode=TwoWay,
                                 NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
                              Width="50" HorizontalContentAlignment="Right"/>
-                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Octet2, Mode=TwoWay}" 
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Octet2, Mode=TwoWay,
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
-                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Octet3, Mode=TwoWay}" 
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Octet3, Mode=TwoWay,
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
-                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Octet4, Mode=TwoWay}" 
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Octet4, Mode=TwoWay,
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
                         </StackPanel>
                         <Separator Height="5" Background="{x:Null}"/>
@@ -243,11 +252,14 @@
                             <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.MaxOctet1, Mode=TwoWay, 
                                 ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
-                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.MaxOctet2, Mode=TwoWay}" 
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.MaxOctet2, Mode=TwoWay,
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
-                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.MaxOctet3, Mode=TwoWay}" 
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.MaxOctet3, Mode=TwoWay,
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
-                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.MaxOctet4, Mode=TwoWay}" 
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.MaxOctet4, Mode=TwoWay,
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
                              Width="50" HorizontalContentAlignment="Right"/>
                         </StackPanel>
                     </StackPanel>
