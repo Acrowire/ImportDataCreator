@@ -567,38 +567,62 @@ namespace FakeData.WPF.Model
 
                 #region Primary IP Address
 
-                switch (primaryIPAddress.Option1)
-                {
-                    case ValueOption.Percentage:
-                        if (i <= rowsPIPAddressPerc1)
-                            obj.PrimaryIPAddress = primaryIPAddress.Value1;
-                        break;
-                    case ValueOption.Amount:
-                        if (i <= primaryIPAddress.Amount1)
-                            obj.PrimaryIPAddress = primaryIPAddress.Value1;
-                        break;
-                    case ValueOption.Remain:
-                        break;
-                    default:
-                        break;
-                }
+                //switch (primaryIPAddress.Option1)
+                //{
+                //    case ValueOption.Percentage:
+                //        if (i <= rowsPIPAddressPerc1)
+                //            obj.PrimaryIPAddress = primaryIPAddress.Value1;
+                //        break;
+                //    case ValueOption.Amount:
+                //        if (i <= primaryIPAddress.Amount1)
+                //            obj.PrimaryIPAddress = primaryIPAddress.Value1;
+                //        break;
+                //    case ValueOption.Remain:
+                //        break;
+                //    default:
+                //        break;
+                //}
 
-                switch (primaryIPAddress.Option2)
-                {
-                    case ValueOption.Percentage:
-                        if (i > rowsPIPAddressPerc1 && i <= (rowsPIPAddressPerc1 + rowsPIPAddressPerc2))
-                            obj.PrimaryIPAddress = primaryIPAddress.Value2;
-                        break;
-                    case ValueOption.Amount:
-                        if (i > primaryIPAddress.Amount1 && i <= (primaryIPAddress.Amount1 + primaryIPAddress.Amount2))
-                            obj.PrimaryIPAddress = primaryIPAddress.Value2;
-                        break;
-                    case ValueOption.Remain:
-                        break;
-                    default:
-                        break;
-                }
+                //switch (primaryIPAddress.Option2)
+                //{
+                //    case ValueOption.Percentage:
+                //        if (i > rowsPIPAddressPerc1 && i <= (rowsPIPAddressPerc1 + rowsPIPAddressPerc2))
+                //            obj.PrimaryIPAddress = primaryIPAddress.Value2;
+                //        break;
+                //    case ValueOption.Amount:
+                //        if (i > primaryIPAddress.Amount1 && i <= (primaryIPAddress.Amount1 + primaryIPAddress.Amount2))
+                //            obj.PrimaryIPAddress = primaryIPAddress.Value2;
+                //        break;
+                //    case ValueOption.Remain:
+                //        break;
+                //    default:
+                //        break;
+                //}
 
+                obj.PrimaryIPAddress = primaryIPAddress.Value;
+
+                if (i == 1)
+                    primaryIPAddress.SaveOriginalValues();
+
+                if (primaryIPAddress.Octet4 < primaryIPAddress.MaxOctet4)
+                    primaryIPAddress.Octet4++;
+                else if (primaryIPAddress.Octet3 < primaryIPAddress.MaxOctet3)
+                {
+                    primaryIPAddress.Octet4 = primaryIPAddress.OriginalValue4;
+                    primaryIPAddress.Octet3++;
+                }
+                else if (primaryIPAddress.Octet2 < primaryIPAddress.MaxOctet2)
+                {
+                    primaryIPAddress.Octet3 = primaryIPAddress.OriginalValue3;
+                    primaryIPAddress.Octet2++;
+                }
+                else if (primaryIPAddress.Octet1 < primaryIPAddress.MaxOctet1)
+                {
+                    primaryIPAddress.Octet2 = primaryIPAddress.OriginalValue4;
+                    primaryIPAddress.Octet1++;
+                }
+                else
+                    primaryIPAddress.ResetValues();
 
                 #endregion
 

@@ -51,7 +51,7 @@
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--IP-->
                 <StackPanel Orientation="Horizontal" Height="60">
-                    <Label Width="75">IP:</Label>
+                    <Label Width="150">IP:</Label>
                     <StackPanel Width="75">
                         <Label Content="Base Ip:" Height="25" Foreground="DimGray"/>
                         <Separator Background="{x:Null}" Height="5" />
@@ -219,9 +219,39 @@
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--Primary IP Address-->
-                <StackPanel Orientation="Horizontal" Height="25">
+                <StackPanel Orientation="Horizontal" Height="60" >
                     <Label>Primary IP Address:</Label>
-                    <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Value1, Mode=TwoWay}" 
+                    <StackPanel Width="75">
+                        <Label Content="Base Ip:" Height="25" Foreground="DimGray"/>
+                        <Separator Background="{x:Null}" Height="5" />
+                        <Label Content="Max Values:" Foreground="DimGray"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="25">
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Octet1, Mode=TwoWay,
+                                NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Octet2, Mode=TwoWay}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Octet3, Mode=TwoWay}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Octet4, Mode=TwoWay}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                        </StackPanel>
+                        <Separator Height="5" Background="{x:Null}"/>
+                        <StackPanel Orientation="Horizontal" Height="25">
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.MaxOctet1, Mode=TwoWay, 
+                                ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.MaxOctet2, Mode=TwoWay}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.MaxOctet3, Mode=TwoWay}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                            <TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.MaxOctet4, Mode=TwoWay}" 
+                             Width="50" HorizontalContentAlignment="Right"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <!--<TextBox Text="{Binding ProNetScanResult.PrimaryIPAddress.Value1, Mode=TwoWay}" 
                              Width="100"/>
                     <TextBox TextAlignment="Right"
                              Text="{Binding ProNetScanResult.PrimaryIPAddress.Amount1, Mode=TwoWay}"
@@ -235,7 +265,7 @@
                              Text="{Binding ProNetScanResult.PrimaryIPAddress.Amount2, Mode=TwoWay}"
                              Width="50"/>
                     <ComboBox SelectedValue="{Binding ProNetScanResult.PrimaryIPAddress.Option2}" 
-                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
+                              ItemsSource="{Binding ValuOptionEnum}" Width="100"/>-->
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
                 <!--WMI-->
@@ -349,7 +379,7 @@
                         <ComboBox 
                               SelectedValue="{Binding ProNetScanResult.DNSName.Option2}" 
                               ItemsSource="{Binding ValuOptionEnum}" Width="100"/>-->
-                        <Label Content="Format: host-(last octet generated)" Width="200"/>
+                        <Label Content="Format: host-(last IP octet generated)" Width="250"/>
                     </StackPanel>
                 </StackPanel>
                 <Separator Height="5" Background="{x:Null}"/>
@@ -433,7 +463,7 @@
                               SelectedValue="{Binding ProNetScanResult.HostName.Option1}" 
                               ItemsSource="{Binding ValuOptionEnum}" Width="100"/>
                         <Separator Width="15" Background="{x:Null}"/>
-                        <Label Content="Format: host-(last octet generated)" Width="200"/>
+                        <Label Content="Format: host-(last IP octet generated)" Width="250"/>
                         <!--<TextBox 
                              Text="{Binding ProNetScanResult.HostName.Value2, Mode=TwoWay}" 
                              Width="100"/>
