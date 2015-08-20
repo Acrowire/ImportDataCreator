@@ -347,40 +347,39 @@ namespace FakeData.WPF.Model
 
                 obj.IP = ip.Value;
 
-                #region Host Name
-
-                obj.Hostname = hostName.value1 + ip.Value.Split('.').Last();
-
-                #endregion
-
-                #region DNA Name
-
-                obj.DNSName = dnsName.value1 + ip.Octet4.ToString();
-
-                #endregion  
-
                 if (i == 1)
                     ip.SaveOriginalValues();
 
-                if (ip.Octet4 < ip.MaxOctet4)
-                    ip.Octet4++;
-                else if (ip.Octet3 < ip.MaxOctet3)
-                {
-                    ip.Octet4 = ip.OriginalValue4;
-                    ip.Octet3++;
-                }
-                else if (ip.Octet2 < ip.MaxOctet2)
-                {
-                    ip.Octet3 = ip.OriginalValue3;
-                    ip.Octet2++;
-                }
-                else if (ip.Octet1 < ip.MaxOctet1)
-                {
-                    ip.Octet2 = ip.OriginalValue4;
-                    ip.Octet1++;
-                }
-                else
-                    ip.ResetValues();
+                //Host Name
+                obj.Hostname = hostName.value1 + ip.Octet4.ToString();
+
+                //DNA Name
+                obj.DNSName = dnsName.value1 + ip.Octet4.ToString();
+
+                ip.NextAddress();
+
+                //if (i == 1)
+                //    ip.SaveOriginalValues();
+
+                //if (ip.Octet4 < ip.MaxOctet4)
+                //    ip.Octet4++;
+                //else if (ip.Octet3 < ip.MaxOctet3)
+                //{
+                //    ip.Octet4 = ip.OriginalValue4;
+                //    ip.Octet3++;
+                //}
+                //else if (ip.Octet2 < ip.MaxOctet2)
+                //{
+                //    ip.Octet3 = ip.OriginalValue3;
+                //    ip.Octet2++;
+                //}
+                //else if (ip.Octet1 < ip.MaxOctet1)
+                //{
+                //    ip.Octet2 = ip.OriginalValue4;
+                //    ip.Octet1++;
+                //}
+                //else
+                //    ip.ResetValues();
 
                 #endregion
 
@@ -604,25 +603,7 @@ namespace FakeData.WPF.Model
                 if (i == 1)
                     primaryIPAddress.SaveOriginalValues();
 
-                if (primaryIPAddress.Octet4 < primaryIPAddress.MaxOctet4)
-                    primaryIPAddress.Octet4++;
-                else if (primaryIPAddress.Octet3 < primaryIPAddress.MaxOctet3)
-                {
-                    primaryIPAddress.Octet4 = primaryIPAddress.OriginalValue4;
-                    primaryIPAddress.Octet3++;
-                }
-                else if (primaryIPAddress.Octet2 < primaryIPAddress.MaxOctet2)
-                {
-                    primaryIPAddress.Octet3 = primaryIPAddress.OriginalValue3;
-                    primaryIPAddress.Octet2++;
-                }
-                else if (primaryIPAddress.Octet1 < primaryIPAddress.MaxOctet1)
-                {
-                    primaryIPAddress.Octet2 = primaryIPAddress.OriginalValue4;
-                    primaryIPAddress.Octet1++;
-                }
-                else
-                    primaryIPAddress.ResetValues();
+                primaryIPAddress.NextAddress();
 
                 #endregion
 
@@ -1254,6 +1235,9 @@ namespace FakeData.WPF.Model
             }
 
             db.SaveChanges();
+
+            ip.ResetValues();
+            primaryIPAddress.ResetValues();
         }
 
         #endregion

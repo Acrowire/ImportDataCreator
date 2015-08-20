@@ -17,7 +17,7 @@ namespace FakeData.WPF.Model
 
         #region Octets
 
-        private int octet1;
+        protected int octet1;
 
         public int Octet1
         {
@@ -25,7 +25,7 @@ namespace FakeData.WPF.Model
             set { octet1 = value; NotifyPropertyChanged(); NotifyPropertyChanged("Ip2Value1"); }
         }
 
-        private int octet2;
+        protected int octet2;
 
         public int Octet2
         {
@@ -33,7 +33,7 @@ namespace FakeData.WPF.Model
             set { octet2 = value; NotifyPropertyChanged(); }
         }
 
-        private int octet3;
+        protected int octet3;
 
         public int Octet3
         {
@@ -41,7 +41,7 @@ namespace FakeData.WPF.Model
             set { octet3 = value; NotifyPropertyChanged(); }
         }
 
-        private int octet4;
+        protected int octet4;
 
         public int Octet4
         {
@@ -51,6 +51,8 @@ namespace FakeData.WPF.Model
 
         #endregion
 
+        #region Original Values
+
         public int OriginalValue1 { get; set; }
 
         public int OriginalValue2 { get; set; }
@@ -59,9 +61,11 @@ namespace FakeData.WPF.Model
 
         public int OriginalValue4 { get; set; }
 
+        #endregion
+
         #region Max Values
 
-        private int maxOctet1;
+        protected int maxOctet1;
 
         public int MaxOctet1
         {
@@ -69,7 +73,7 @@ namespace FakeData.WPF.Model
             set { maxOctet1 = value; NotifyPropertyChanged(); NotifyPropertyChanged("Ip1Value1"); }
         }
 
-        private int maxOctet2;
+        protected int maxOctet2;
 
         public int MaxOctet2
         {
@@ -77,7 +81,7 @@ namespace FakeData.WPF.Model
             set { maxOctet2 = value; NotifyPropertyChanged(); }
         }
 
-        private int maxOctet3;
+        protected int maxOctet3;
 
         public int MaxOctet3
         {
@@ -85,7 +89,7 @@ namespace FakeData.WPF.Model
             set { maxOctet3 = value; NotifyPropertyChanged(); }
         }
 
-        private int maxOctet4;
+        protected int maxOctet4;
 
         public int MaxOctet4
         {
@@ -105,6 +109,34 @@ namespace FakeData.WPF.Model
 
         #endregion
 
+        #region Methods
+
+        public void NextAddress()
+        {
+            if (octet4 < maxOctet4)
+                octet4++;
+            else if (octet3 < maxOctet3)
+            {
+                octet4 = OriginalValue4;
+                octet3++;
+            }
+            else if (octet2 < maxOctet2)
+            {
+                octet4 = OriginalValue4;
+                octet3 = OriginalValue3;
+                octet2++;
+            }
+            else if (octet1 < maxOctet1)
+            {
+                octet4 = OriginalValue4;
+                octet3 = OriginalValue3;
+                octet2 = OriginalValue2;
+                octet1++;
+            }
+            else
+                ResetValues();
+        }
+
         public void SaveOriginalValues()
         {
             OriginalValue1 = octet1;
@@ -115,8 +147,13 @@ namespace FakeData.WPF.Model
 
         public void ResetValues()
         {
-            //Not implement logic.
+            octet4 = OriginalValue4;
+            octet3 = OriginalValue3;
+            octet2 = OriginalValue2;
+            octet1 = OriginalValue1;
         }
+
+        #endregion
 
         #region IDataErrorInfo
 
